@@ -1,7 +1,7 @@
-package test;
+package me.nomurahiroshi.inventorymanagementservlet.test;
 
-import model.Item;
-import model.ReadLogic;
+import me.nomurahiroshi.inventorymanagementservlet.model.Item;
+import me.nomurahiroshi.inventorymanagementservlet.model.ReadLogic;
 
 import java.util.List;
 

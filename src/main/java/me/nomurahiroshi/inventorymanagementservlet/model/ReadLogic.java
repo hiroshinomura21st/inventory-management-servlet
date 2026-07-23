@@ -1,6 +1,6 @@
-package model;
+package me.nomurahiroshi.inventorymanagementservlet.model;
 
-import dao.ItemsDAO;
+import me.nomurahiroshi.inventorymanagementservlet.dao.ItemsDAO;
 
 import java.util.List;
 

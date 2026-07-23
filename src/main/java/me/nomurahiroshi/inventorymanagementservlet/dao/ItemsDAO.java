@@ -1,6 +1,6 @@
-package dao;
+package me.nomurahiroshi.inventorymanagementservlet.dao;
 
-import model.Item;
+import me.nomurahiroshi.inventorymanagementservlet.model.Item;
 
 import java.sql.*;
 import java.util.ArrayList;

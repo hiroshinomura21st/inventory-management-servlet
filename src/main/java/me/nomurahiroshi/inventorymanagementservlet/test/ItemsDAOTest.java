@@ -1,7 +1,7 @@
-package test;
+package me.nomurahiroshi.inventorymanagementservlet.test;
 
-import dao.ItemsDAO;
-import model.Item;
+import me.nomurahiroshi.inventorymanagementservlet.dao.ItemsDAO;
+import me.nomurahiroshi.inventorymanagementservlet.model.Item;
 
 import java.util.List;
 

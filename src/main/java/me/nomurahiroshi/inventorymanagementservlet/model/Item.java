@@ -1,4 +1,4 @@
-package model;
+package me.nomurahiroshi.inventorymanagementservlet.model;
 
 public class Item {
     private String itemCode;
