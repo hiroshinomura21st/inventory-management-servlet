@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import me.nomurahiroshi.inventorymanagementservlet.model.Item;
-import me.nomurahiroshi.inventorymanagementservlet.model.ReadLogic;
+import me.nomurahiroshi.inventorymanagementservlet.bo.ReadLogic;
 
 import java.io.IOException;
 import java.util.List;
