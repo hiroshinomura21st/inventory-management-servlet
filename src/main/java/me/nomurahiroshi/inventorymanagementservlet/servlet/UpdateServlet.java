@@ -6,28 +6,35 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import me.nomurahiroshi.inventorymanagementservlet.bo.CreateLogic;
 import me.nomurahiroshi.inventorymanagementservlet.bo.GetSupplierLogic;
+import me.nomurahiroshi.inventorymanagementservlet.bo.SelectItemLogic;
+import me.nomurahiroshi.inventorymanagementservlet.bo.UpdateItemLogic;
 import me.nomurahiroshi.inventorymanagementservlet.model.Item;
 import me.nomurahiroshi.inventorymanagementservlet.model.Supplier;
 
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/CreateServlet")
-public class CreateServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        GetSupplierLogic bo = new GetSupplierLogic();
-        List<Supplier> supplierList = bo.execute();
+@WebServlet("/UpdateServlet")
+public class UpdateServlet extends HttpServlet {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String itemCode = request.getParameter("itemCode");
+        SelectItemLogic selectItemLogic = new SelectItemLogic();
+        Item item = selectItemLogic.execute(itemCode);
+        request.setAttribute("item", item);
+
+        GetSupplierLogic getSupplierLogic = new GetSupplierLogic();
+        List<Supplier> supplierList = getSupplierLogic.execute();
         request.setAttribute("supplierList", supplierList);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/update.jsp");
         dispatcher.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // リクエストパラメータの取得
         request.setCharacterEncoding("UTF-8");
+
         String itemCode = request.getParameter("itemCode");
         String name = request.getParameter("name");
         int price = Integer.parseInt(request.getParameter("price"));
@@ -35,10 +42,10 @@ public class CreateServlet extends HttpServlet {
         String supplierCode = request.getParameter("supplierCode");
 
         Item item = new Item(itemCode, name, price, stockNum, supplierCode);
-        CreateLogic bo = new CreateLogic();
+        UpdateItemLogic bo = new UpdateItemLogic();
         List<Item> itemList = bo.execute(item);
         request.setAttribute("itemList", itemList);
-        String Msg = "商品を1件登録しました。";
+        String Msg = "商品を1件編集しました。";
         request.setAttribute("Msg", Msg);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/read.jsp");
