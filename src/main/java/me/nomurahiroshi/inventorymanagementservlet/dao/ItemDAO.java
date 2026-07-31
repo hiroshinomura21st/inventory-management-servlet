@@ -1,6 +1,7 @@
 package me.nomurahiroshi.inventorymanagementservlet.dao;
 
 import me.nomurahiroshi.inventorymanagementservlet.model.Item;
+import me.nomurahiroshi.inventorymanagementservlet.model.Search;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -165,6 +166,45 @@ public class ItemDAO {
             return false;
         }
         return true;
+    }
+    public List<Item> searchItems(String order, String keyword) {
+        List<Item> itemList = new ArrayList<>();
+
+        // JDBCドライバを読み込む
+        try {
+            Class.forName("org.h2.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new IllegalStateException("JDBCドライバを読み込めませんでした");
+        }
+        // データベースへ接続
+        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+            if (!"ASC".equals(order) && !"DESC".equals(order)) {
+                 order = "ASC";
+            }
+
+            String sql =
+                    "SELECT * FROM ITEMS WHERE NAME LIKE ? ORDER BY NAME " + order;
+
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, "%" + keyword + "%");
+
+            // SELECT文を実行し、結果表を取得
+            ResultSet rs = pStmt.executeQuery();
+
+            while (rs.next()) {
+                String itemCode = rs.getString("ITEM_CODE");
+                String name = rs.getString("NAME");
+                int price = rs.getInt("PRICE");
+                int stockNum = rs.getInt("STOCK_NUM");
+                String supplierCode = rs.getString("SUPPLIER_CODE");
+                Item item = new Item(itemCode, name, price, stockNum, supplierCode);
+                itemList.add(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return itemList;
     }
 }
 

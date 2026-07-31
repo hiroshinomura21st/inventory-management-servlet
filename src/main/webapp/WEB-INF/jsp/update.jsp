@@ -28,7 +28,7 @@
     <article class="registration">
         <h1>商品編集</h1>
         <div class="back">
-            <a href="ReadServlet" class="btn">&lt; 戻る</a>
+            <a href="SearchServlet" class="btn">&lt; 戻る</a>
         </div>
         <form action="UpdateServlet" method="post" class="registration-form">
             <div>

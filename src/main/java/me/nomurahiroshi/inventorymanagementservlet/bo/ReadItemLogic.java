@@ -5,7 +5,7 @@ import me.nomurahiroshi.inventorymanagementservlet.model.Item;
 
 import java.util.List;
 
-public class ReadLogic {
+public class ReadItemLogic {
     public List<Item> execute() {
         ItemDAO dao = new ItemDAO();
         List<Item> itemList = dao.readItems();

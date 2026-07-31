@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import me.nomurahiroshi.inventorymanagementservlet.bo.CreateLogic;
+import me.nomurahiroshi.inventorymanagementservlet.bo.CreateItemLogic;
 import me.nomurahiroshi.inventorymanagementservlet.bo.GetSupplierLogic;
 import me.nomurahiroshi.inventorymanagementservlet.model.Item;
 import me.nomurahiroshi.inventorymanagementservlet.model.Supplier;
@@ -35,7 +35,7 @@ public class CreateServlet extends HttpServlet {
         String supplierCode = request.getParameter("supplierCode");
 
         Item item = new Item(itemCode, name, price, stockNum, supplierCode);
-        CreateLogic bo = new CreateLogic();
+        CreateItemLogic bo = new CreateItemLogic();
         List<Item> itemList = bo.execute(item);
         request.setAttribute("itemList", itemList);
         String Msg = "商品を1件登録しました。";

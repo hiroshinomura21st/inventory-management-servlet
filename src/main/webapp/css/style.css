@@ -106,6 +106,12 @@ footer {
     align-items: flex-end;
 }
 
+.items-ui form {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 @media (max-width: 959px) {
     .items-ui {
         flex-direction: column;
@@ -117,20 +123,40 @@ footer {
     }
 }
 
-.sort-img {
-    height: 1.75rem;
-    vertical-align: top;
+.search-form {
+    display: flex;
+    align-items: center;
 }
 
-.search-form {
-    margin-left: 0.75rem;
+.sort-button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+
+.sort-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .search-box {
     box-sizing: border-box;
+    width: 200px;
     max-width: 300px;
     height: 1.75rem;
+    margin-left: 0.5rem;
     padding: 0.25rem 0.5rem;
+    font-family: "Noto Sans JP", sans-serif;
     background: #eee;
     border: none;
     outline: 0;

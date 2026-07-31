@@ -1,11 +1,14 @@
 package me.nomurahiroshi.inventorymanagementservlet.model;
 
-public class Supplier {
+import java.io.Serializable;
+
+public class Supplier implements Serializable {
     private String supplierCode;
     private String name;
     private String tel;
     private String address;
 
+    public Supplier() {}
     public Supplier(String supplierCode, String name, String tel, String address) {
         this.supplierCode = supplierCode;
         this.name = name;

@@ -31,7 +31,17 @@
         <p class="success"><c:out value="${Msg}" /></p>
       </c:if>
       <div class="items-ui">
-        <div></div>
+        <div>
+          <form action="SearchServlet" method="post" class="search-form">
+            <button type="submit" name="order" value="DESC" class="sort-button">
+              <img src="images/desc.png" alt="降順" class="sort-img">
+            </button>
+            <button type="submit" name="order" value="ASC" class="sort-button">
+              <img src="images/asc.png" alt="昇順" class="sort-img">
+            </button>
+            <input type="search" name="keyword" placeholder="商品名で検索" value="${keyword}" class="search-box">
+          </form>
+        </div>
         <a href="CreateServlet" class="btn">商品登録</a>
       </div>
       <table class="items-table">
