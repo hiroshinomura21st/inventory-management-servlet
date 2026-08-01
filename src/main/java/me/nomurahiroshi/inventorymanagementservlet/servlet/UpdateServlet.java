@@ -6,10 +6,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import me.nomurahiroshi.inventorymanagementservlet.bo.GetSupplierLogic;
 import me.nomurahiroshi.inventorymanagementservlet.bo.SelectItemLogic;
 import me.nomurahiroshi.inventorymanagementservlet.bo.UpdateItemLogic;
 import me.nomurahiroshi.inventorymanagementservlet.model.Item;
+import me.nomurahiroshi.inventorymanagementservlet.model.Search;
 import me.nomurahiroshi.inventorymanagementservlet.model.Supplier;
 
 import java.io.IOException;
@@ -40,10 +42,11 @@ public class UpdateServlet extends HttpServlet {
         int price = Integer.parseInt(request.getParameter("price"));
         int stockNum = Integer.parseInt(request.getParameter("stockNum"));
         String supplierCode = request.getParameter("supplierCode");
-
         Item item = new Item(itemCode, name, price, stockNum, supplierCode);
+        HttpSession session = request.getSession();
+        Search search = (Search)session.getAttribute("search");
         UpdateItemLogic bo = new UpdateItemLogic();
-        List<Item> itemList = bo.execute(item);
+        List<Item> itemList = bo.execute(item, search);
         request.setAttribute("itemList", itemList);
         String Msg = "商品を1件編集しました。";
         request.setAttribute("Msg", Msg);
