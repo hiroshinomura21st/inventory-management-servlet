@@ -86,23 +86,23 @@ src/main/webapp
 
 ### トップ画面
 
-![トップ画面](images/top.png)
+![トップ画面](src/main/webapp/images/top.png)
 
 ### 商品一覧画面
 
-![商品一覧](images/read.png)
+![商品一覧](src/main/webapp/images/read.png)
 
 ### 商品登録画面
 
-![商品登録](images/create.png)
+![商品登録](src/main/webapp/images/create.png)
 
 ### 商品編集画面
 
-![商品編集](images/update.png)
+![商品編集](src/main/webapp/images/update.png)
 
 ### 商品検索画面
 
-![商品検索](images/search.png)
+![商品検索](src/main/webapp/images/search.png)
 
 
 ## データベース
