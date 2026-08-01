@@ -6,8 +6,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import me.nomurahiroshi.inventorymanagementservlet.bo.DeleteItemLogic;
 import me.nomurahiroshi.inventorymanagementservlet.model.Item;
+import me.nomurahiroshi.inventorymanagementservlet.model.Search;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,8 +19,10 @@ public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String itemCode = request.getParameter("itemCode");
+        HttpSession session = request.getSession();
+        Search search = (Search)session.getAttribute("search");
         DeleteItemLogic bo = new DeleteItemLogic();
-        List<Item> itemList = bo.execute(itemCode);
+        List<Item> itemList = bo.execute(itemCode, search);
         request.setAttribute("itemList", itemList);
         String Msg = "商品を1件削除しました。";
         request.setAttribute("Msg", Msg);
