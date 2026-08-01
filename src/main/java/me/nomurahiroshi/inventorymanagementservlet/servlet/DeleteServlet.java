@@ -24,8 +24,8 @@ public class DeleteServlet extends HttpServlet {
         DeleteItemLogic bo = new DeleteItemLogic();
         List<Item> itemList = bo.execute(itemCode, search);
         request.setAttribute("itemList", itemList);
-        String Msg = "商品を1件削除しました。";
-        request.setAttribute("Msg", Msg);
+        String msg = "商品を1件削除しました。";
+        request.setAttribute("Msg", msg);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/read.jsp");
         dispatcher.forward(request, response);

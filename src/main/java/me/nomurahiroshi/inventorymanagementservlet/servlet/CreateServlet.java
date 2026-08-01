@@ -38,8 +38,8 @@ public class CreateServlet extends HttpServlet {
         CreateItemLogic bo = new CreateItemLogic();
         List<Item> itemList = bo.execute(item);
         request.setAttribute("itemList", itemList);
-        String Msg = "商品を1件登録しました。";
-        request.setAttribute("Msg", Msg);
+        String msg = "商品を1件登録しました。";
+        request.setAttribute("Msg", msg);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/read.jsp");
         dispatcher.forward(request, response);

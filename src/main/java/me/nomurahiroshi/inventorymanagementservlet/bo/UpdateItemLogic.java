@@ -11,7 +11,7 @@ public class UpdateItemLogic {
         List<Item> itemList = null;
         ItemDAO dao = new ItemDAO();
         boolean result = dao.updateItem(item);
-        if (result == true && search == null) {
+        if (result && search == null) {
             itemList = dao.readItems();
         } else {
             String order = search.getOrder();

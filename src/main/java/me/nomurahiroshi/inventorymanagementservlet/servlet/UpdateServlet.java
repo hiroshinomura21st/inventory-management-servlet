@@ -48,8 +48,8 @@ public class UpdateServlet extends HttpServlet {
         UpdateItemLogic bo = new UpdateItemLogic();
         List<Item> itemList = bo.execute(item, search);
         request.setAttribute("itemList", itemList);
-        String Msg = "商品を1件編集しました。";
-        request.setAttribute("Msg", Msg);
+        String msg = "商品を1件編集しました。";
+        request.setAttribute("Msg", msg);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/read.jsp");
         dispatcher.forward(request, response);
