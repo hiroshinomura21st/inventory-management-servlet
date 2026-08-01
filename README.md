@@ -130,7 +130,7 @@ Ver.1.0ではH2 Databaseを使用しています。
 
 ## 作者
 
-Hiroshi Nomura
+野村　広
 
 ## 公開について
 
