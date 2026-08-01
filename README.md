@@ -100,10 +100,6 @@ src/main/webapp
 
 ![商品編集](src/main/webapp/images/update.png)
 
-### 商品検索画面
-
-![商品検索](src/main/webapp/images/search.png)
-
 
 ## データベース
 
