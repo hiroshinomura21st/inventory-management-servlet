@@ -6,9 +6,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import me.nomurahiroshi.inventorymanagementservlet.bo.CreateItemLogic;
 import me.nomurahiroshi.inventorymanagementservlet.bo.GetSupplierLogic;
 import me.nomurahiroshi.inventorymanagementservlet.model.Item;
+import me.nomurahiroshi.inventorymanagementservlet.model.Search;
 import me.nomurahiroshi.inventorymanagementservlet.model.Supplier;
 
 import java.io.IOException;
@@ -35,8 +37,10 @@ public class CreateServlet extends HttpServlet {
         String supplierCode = request.getParameter("supplierCode");
 
         Item item = new Item(itemCode, name, price, stockNum, supplierCode);
+        HttpSession session = request.getSession();
+        Search search = (Search)session.getAttribute("search");
         CreateItemLogic bo = new CreateItemLogic();
-        List<Item> itemList = bo.execute(item);
+        List<Item> itemList = bo.execute(item, search);
         request.setAttribute("itemList", itemList);
         String msg = "商品を1件登録しました。";
         request.setAttribute("Msg", msg);
