@@ -6,10 +6,6 @@ import java.util.List;
 import me.nomurahiroshi.inventorymanagementservlet.model.Supplier;
 
 public class SupplierDAO {
-    private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/inventoryManagement";
-    private final String DB_USER = "sa";
-    private final String DB_PASS = "";
-
     public List<Supplier> readSupplier() {
         Supplier supplier = null;
         List<Supplier> supplierList = new ArrayList<>();
@@ -20,7 +16,7 @@ public class SupplierDAO {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
         // データベースへ接続
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+        try (Connection conn = DatabaseConnection.getConnection()) {
 
             // SELECT文を準備
             String sql = "SELECT * FROM SUPPLIERS";

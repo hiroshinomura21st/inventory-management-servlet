@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemDAO {
-    private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/inventoryManagement";
-    private final String DB_USER = "sa";
-    private final String DB_PASS = "";
-
     public List<Item> readItems() {
         List<Item> itemList = new ArrayList<>();
 
@@ -22,7 +18,7 @@ public class ItemDAO {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
         // データベースへ接続
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+        try (Connection conn = DatabaseConnection.getConnection()) {
             String sql = "SELECT * FROM ITEMS";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -53,7 +49,7 @@ public class ItemDAO {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
         // データベースへ接続
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
             String sql = "INSERT INTO ITEMS VALUES ( ?, ?, ?, ?, ?)";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -85,7 +81,7 @@ public class ItemDAO {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
         // データベースへ接続
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+        try (Connection conn = DatabaseConnection.getConnection()) {
             String sql = "SELECT * FROM ITEMS WHERE ITEM_CODE = ?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -117,7 +113,7 @@ public class ItemDAO {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
         // データベースへ接続
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
             String sql = "UPDATE ITEMS SET ITEM_CODE = ?, NAME = ?, PRICE = ?, STOCK_NUM = ?, SUPPLIER_CODE = ? WHERE ITEM_CODE = ?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -149,7 +145,7 @@ public class ItemDAO {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
         // データベースへ接続
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
             String sql = "DELETE FROM ITEMS WHERE ITEM_CODE = ?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -177,7 +173,7 @@ public class ItemDAO {
             throw new IllegalStateException("JDBCドライバを読み込めませんでした");
         }
         // データベースへ接続
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
+        try (Connection conn = DatabaseConnection.getConnection()) {
             if (!"ASC".equals(order) && !"DESC".equals(order)) {
                  order = "ASC";
             }
