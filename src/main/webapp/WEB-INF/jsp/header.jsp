@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <header>
     <nav>
-        <a href="index.jsp">商品管理アプリ</a>
+        <a href="ReturnToIndexServlet">商品管理アプリ</a>
     </nav>
 </header>
