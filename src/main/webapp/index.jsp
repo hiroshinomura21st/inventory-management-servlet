@@ -18,7 +18,7 @@
     <main>
         <article class="home">
             <h1>商品管理アプリ</h1>
-            <p>Servlet & JSP版　Ver.1.0.0　with H2 Database</p>
+            <p>Java Servlet版　Ver.1.0.0　with H2 Database</p>
             <a href="ReadServlet" class="btn">商品一覧</a>
         </article>
     </main>
