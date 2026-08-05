@@ -44,6 +44,9 @@ public class CreateServlet extends HttpServlet {
         request.setAttribute("itemList", itemList);
         String msg = "商品を1件登録しました。";
         request.setAttribute("Msg", msg);
+        if (search != null) {
+            request.setAttribute("keyword", search.getKeyword());
+        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/read.jsp");
         dispatcher.forward(request, response);
