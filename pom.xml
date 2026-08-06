@@ -6,7 +6,7 @@
 
     <groupId>me.nomurahiroshi</groupId>
     <artifactId>inventory-management-servlet</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>inventory-management-servlet</name>
     <packaging>war</packaging>
 

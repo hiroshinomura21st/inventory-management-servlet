@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <main>
         <article class="home">
             <h1>商品管理アプリ</h1>
-            <p>Java Servlet版　Ver.1.0.1　with H2 Database</p>
+            <p>Java Servlet版　Ver.1.0.2　with H2 Database</p>
             <a href="ReadServlet" class="btn">商品一覧</a>
         </article>
     </main>

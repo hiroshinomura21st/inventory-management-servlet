@@ -2,7 +2,7 @@
 
 Java Servlet・JSP・JDBCを用いて開発した在庫管理Webアプリケーションです。
 
-**Version:** 1.0.1  
+**Version:** 1.0.2  
 **Status:** Released  
 **Database:** H2 Database
 
@@ -87,7 +87,7 @@ src/main/webapp
 
 ### トップ画面
 
-![トップ画面](src/main/webapp/images/top.png)
+![トップ画面](src/main/webapp/images/inventory_management_servlet_1.0.2.png)
 
 ### 商品一覧画面
 
@@ -104,7 +104,7 @@ src/main/webapp
 
 ## データベース
 
-Ver.1.0ではH2 Databaseを使用しています。
+Ver.1.xではH2 Databaseを使用しています。
 
 ---
 
@@ -113,15 +113,31 @@ Ver.1.0ではH2 Databaseを使用しています。
 ### Ver.2.0
 
 - PostgreSQL対応
+- バッチ処理
 
 ### Ver.3.0
 
-- 削除確認画面
-- バッチ処理
+- Spring Boot対応
 
 ---
 
 ## Version History
+
+### v1.0.2（2026-08-06）
+
+#### Added
+
+- 商品削除前の確認画面を追加
+
+#### Improved
+
+- 削除処理をPOSTで実行するよう改善
+- セッション取得処理を見直し、不要なセッションが作成されないよう改善
+
+#### Changed
+
+- アプリケーションのバージョン表記をVer.1.0.2へ更新
+- 
 
 ### v1.0.1（2026-08-05）
 
